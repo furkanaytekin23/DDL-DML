@@ -1,6 +1,6 @@
 
 ## Problem - DDL ve DML Komutları
-Bu senaryo içerisinde sizlere tahsis edilen makinelerde SQL Server 2019 imajını kurmanız ve burada DDL ve DML komutları ile bazı basit işlemleri uyguladığınız bir senaryo hazırlamanız istenmektedir.
+Bu senaryo içerisinde sizlere tahsis edilen makinelerde Postgresql imajını kurmanız ve burada DDL ve DML komutları ile bazı basit işlemleri uyguladığınız bir senaryo hazırlamanız istenmektedir.
 ---
 
 ### Bilgi 
@@ -37,25 +37,22 @@ En yaygın kullanılan komutları şunlardır:
 
 .DROP VIEW : Görüntüyü siler.
 
-Bu senaryoda, Alpine imajında çalışan bir MSSQL veritabanı oluşturacak ve ardından bir tablo oluşturup tablo içerisine kayıtlar atıp daha sonra bu kayıtları sorgu ile çekeceğiz.
+Bu senaryoda, Alpine imajında çalışan bir PostgreSQL veritabanı oluşturacak ve ardından bir tablo oluşturup, tablo içerisine kayıtlar insert edip, daha sonra bu kayıtlardan bazılarını update edip, bazılarını da delete yapıcaz ve son halini sorgu ile çekeceğiz.
 
 ### Talimatlar
 
 1. Servislerimizin çalıştığını `docker version` ile kontrol edelim.
-2. Docker Pull komutu ile Docker Hub'tan SQL Server 2019 imajı parça parça indirelim.
-3. İndirdiğimiz imajımızı sudo docker run komutu ile ayağa kaldıralım.
-4. Docker containerımın `sudo docker ps -a` komutu ile ayağa kalktığını görebiliriz.
-5. Docker imajının çalıştığından emin olduktan sonra sudo docker exec komutunu çalıştırıp SQL Server 2019 veritabanına erişelim. 
-6. `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "FurkanAytekin@6"` komutunu çalıştırarak bağlantı gerçekleşir ve burada sql komutlarını çalıştırabilirsiniz. 
-7. SQL Server 2019 veritabanına bağlandıktan sonra aşağıdaki komutları çalıştırarak en basit SQL sorgularından birisi, hangi SQL Server sürümü ile çalıştığımızı anlamak için kullandığımız @@version system parametresini görüntülemek olacaktır.
+2. Postgresql veritabanını docker imajı ile ayağa kaldırabilmek için `docker run --name mypostgresdb -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres` komutunu çalıştıralım. 
+3. Docker imajının çalıştığından emin olduktan sonra `docker exec -it mypostgresdb bash` komutunu çalıştırıp postgresql veritabanına erişelim.
+4. `psql -U postgres` komutunu çalıştırarak bağlantı gerçekleşir ve burada psql komutlarını çalıştırabilirsiniz.
+5. Postgresql veritabanına bağlandıktan sonra aşağıdaki komutları çalıştırarak tablo oluşturup, içerisine kayıtlar insert edeceğiz.
+6. `TurkTelekom` adında yeni bir veritabanı oluşturun sonrasında `\c TurkTelekom` diyerek veritabanınıza bağlanın. 
+7. Bağlantı yapıldıktan sonra içerisinde "Calisan_id","Calisan_adi","Yasi" şeklinde sütunları olan "Calisanlar" adında bir tablo oluşturunuz ve bu tabloya da id si 23 ismi "Furkan Aytekin" yaşı 27,id si 24, ismi "Jack Nichialson" yaşı 32, id si 25 ismi "Andrew Bailing" yaşı 33 şeklinde olan kayıtlar insert ediniz. 
 "GO" komutu ile o ana dek yazılan SQL sorgusu çalıştırılır.
-8. `SELECT @@version` `go` komutu ile basit bir sorgu kullanalım.
-9. "TurkTelekom" adında bir database oluşturun ve bu database i kullanın.
-10. İçerisinde "id" ve "calisan_adi" isimli columnları olan, "calisanlar" adında bir tablo oluşturun,
-11. Oluşturmuş olduğun calisanlar tablosuna id si 23 olan ve çalışan adı "Furkan Aytekin" olan bir çalışan insert edin.
-12. Oluşturmuş olduğun kaydı çekip, görüntüleyin.
-13. Çıktıyı sql.txt dosyasına kaydedin. İpucu: vi,vim 
-14. İşlemleri tamamladıktan sonra "Kontrol Et" butonuna basınız ve senaryoyu tamamlayınız.
+8. Daha sonra id si 25 olan çalınanın yaşını 38 olarak update edin ve id si 24 olan çalışanı da delete yapın.
+9. Oluşturmuş olduğun kaydı çekip, görüntüleyin.
+10. Çıktıyı sql.txt dosyasına kaydedin. İpucu: vi,vim 
+11. İşlemleri tamamladıktan sonra "Kontrol Et" butonuna basınız ve senaryoyu tamamlayınız.
 
 ### Başarılı Çıktı
  Koşul:  
