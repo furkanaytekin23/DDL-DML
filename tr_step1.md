@@ -42,18 +42,18 @@ Bu senaryoda, Alpine imajında çalışan bir MSSQL veritabanı oluşturacak ve 
 ### Talimatlar
 
 1. Servislerimizin çalıştığını `docker version` ile kontrol edelim.
-2. Docker Pull komutu `docker pull mcr.microsoft.com/mssql/server:2019-latest` ile Docker Hub'tan SQL Server 2019 imajı parça parça indirelim.
-3. Docker imajımızı `sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=FurkanAytekin@6" -p 1433:1433 --name sqlserver2019 -d mcr.microsoft.com/mssql/server:2019-latest` ile ayağa kaldıralım.
+2. Docker Pull komutu ile Docker Hub'tan SQL Server 2019 imajı parça parça indirelim.
+3. İndirdiğimiz imajımızı sudo docker run komutu ile ayağa kaldıralım.
 4. Docker containerımın `sudo docker ps -a` komutu ile ayağa kalktığını görebiliriz.
-5. Docker imajının çalıştığından emin olduktan sonra `sudo docker exec -it sqlserver2019 "bash"` komutunu çalıştırıp SQL Server 2019 veritabanına erişelim. 
+5. Docker imajının çalıştığından emin olduktan sonra sudo docker exec komutunu çalıştırıp SQL Server 2019 veritabanına erişelim. 
 6. `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "FurkanAytekin@6"` komutunu çalıştırarak bağlantı gerçekleşir ve burada sql komutlarını çalıştırabilirsiniz. 
 7. SQL Server 2019 veritabanına bağlandıktan sonra aşağıdaki komutları çalıştırarak en basit SQL sorgularından birisi, hangi SQL Server sürümü ile çalıştığımızı anlamak için kullandığımız @@version system parametresini görüntülemek olacaktır.
 "GO" komutu ile o ana dek yazılan SQL sorgusu çalıştırılır.
 8. `SELECT @@version` `go` komutu ile basit bir sorgu kullanalım.
-9. "TurkTelekom" adında bir database oluşturun ve bu database i kullanın.`Create database TurkTelekom` `Use TurkTelekom`
-10. Bu database içerisine "calisanlar" adında bir tablo oluşturun. `Create table calisanlar(id smallint primary key , calisan_adi varchar(50))`
-11. Oluşturmuş olduğun calisanlar tablosuna id si 23 olan ve çalışan adı "Furkan Aytekin" olan bir çalışan ekleyin `insert into calisanlar values(23,'Furkan Aytekin')`
-12. Oluşturmuş olduğun kaydı çekip, görüntüleyin. `Select * From calisanlar`
+9. "TurkTelekom" adında bir database oluşturun ve bu database i kullanın.
+10. İçerisinde "id" ve "calisan_adi" isimli columnları olan, "calisanlar" adında bir tablo oluşturun,
+11. Oluşturmuş olduğun calisanlar tablosuna id si 23 olan ve çalışan adı "Furkan Aytekin" olan bir çalışan insert edin.
+12. Oluşturmuş olduğun kaydı çekip, görüntüleyin.
 13. Çıktıyı sql.txt dosyasına kaydedin. İpucu: vi,vim 
 14. İşlemleri tamamladıktan sonra "Kontrol Et" butonuna basınız ve senaryoyu tamamlayınız.
 
