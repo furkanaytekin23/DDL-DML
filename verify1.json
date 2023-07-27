@@ -1,0 +1,8 @@
+{
+  "command": [
+      "sh",
+      "-c",      
+      "Select * From calisanlar 2>&1 | tee output.txt  && cat sql.txt | grep -i 'Furkan Aytekin'> /dev/null 2>&1 || exit 1"
+  ]
+}
+
