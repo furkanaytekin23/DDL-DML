@@ -47,8 +47,7 @@ Bu senaryoda, Alpine imajında çalışan bir PostgreSQL veritabanı oluşturaca
 4. `psql -U postgres` komutunu çalıştırarak bağlantı gerçekleşir ve burada psql komutlarını çalıştırabilirsiniz.
 5. Postgresql veritabanına bağlandıktan sonra aşağıdaki komutları çalıştırarak tablo oluşturup, içerisine kayıtlar insert edeceğiz.
 6. `TurkTelekom` adında yeni bir veritabanı oluşturun sonrasında `\c TurkTelekom` diyerek veritabanınıza bağlanın. 
-7. Bağlantı yapıldıktan sonra içerisinde "Calisan_id","Calisan_adi","Yasi" şeklinde sütunları olan "Calisanlar" adında bir tablo oluşturunuz ve bu tabloya da id si 23 ismi "Furkan Aytekin" yaşı 27,id si 24, ismi "Jack Nichialson" yaşı 32, id si 25 ismi "Andrew Bailing" yaşı 33 şeklinde olan kayıtlar insert ediniz. 
-"GO" komutu ile o ana dek yazılan SQL sorgusu çalıştırılır.
+7. Bağlantı yapıldıktan sonra içerisinde "Calisan_id","Calisan_adi","Yasi" şeklinde sütunları olan "Calisanlar" adında bir tablo oluşturunuz ve bu tabloya da id si 23 ismi "Furkan Aytekin" yaşı 27, id si 24 ismi "Jack Nichialson" yaşı 32, id si 25 ismi "Andrew Bailing" yaşı 33 şeklinde olan kayıtlar insert ediniz. 
 8. Daha sonra id si 25 olan çalınanın yaşını 38 olarak update edin ve id si 24 olan çalışanı da delete yapın.
 9. Oluşturmuş olduğun kaydı çekip, görüntüleyin.
 10. Çıktıyı sql.txt dosyasına kaydedin. İpucu: vi,vim 
@@ -57,7 +56,9 @@ Bu senaryoda, Alpine imajında çalışan bir PostgreSQL veritabanı oluşturaca
 ### Başarılı Çıktı
  Koşul:  
 ``` echo
-id     calisan_adi                                       
------- --------------------------------------------------
-    23 Furkan Aytekin 
+calisan_id |  calisan_adi   | yasi 
+------------+----------------+------
+         23 | Furkan Aytekin |   27
+         25 | Andrew Bailing |   38
+(2 rows)
 ```      
