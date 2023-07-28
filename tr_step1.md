@@ -48,7 +48,7 @@ Bu senaryoda, Alpine imajında çalışan bir PostgreSQL veritabanı oluşturaca
 5. Postgresql veritabanına bağlandıktan sonra aşağıdaki komutları çalıştırarak tablo oluşturup, içerisine kayıtlar insert edeceğiz.
 6. `TurkTelekom` adında yeni bir veritabanı oluşturun sonrasında `\c TurkTelekom` diyerek veritabanınıza bağlanın. 
 7. Bağlantı yapıldıktan sonra içerisinde "Calisan_id","Calisan_adi","Yasi" şeklinde sütunları olan "Calisanlar" adında bir tablo oluşturunuz ve bu tabloya da id si 23 ismi "Furkan Aytekin" yaşı 27, id si 24 ismi "Jack Nichialson" yaşı 32, id si 25 ismi "Andrew Bailing" yaşı 33 şeklinde olan kayıtlar insert ediniz. 
-8. Daha sonra id si 25 olan çalınanın yaşını 38 olarak update edin ve id si 24 olan çalışanı da delete yapın.
+8. Daha sonra id si 25 olan çalışanın yaşını 38 olarak update edin ve id si 24 olan çalışanı da delete yapın.
 9. Oluşturmuş olduğun kaydı çekip, görüntüleyin.
 10. Çıktıyı sql.txt dosyasına kaydedin. İpucu: vi,vim 
 11. İşlemleri tamamladıktan sonra "Kontrol Et" butonuna basınız ve senaryoyu tamamlayınız.
