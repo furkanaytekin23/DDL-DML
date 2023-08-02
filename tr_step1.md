@@ -21,11 +21,11 @@ Bu senaryoda amacımız bir şirkette müdür olduğunuz varsayılıp, çalışa
 ### Başarılı Çıktı
  Koşul:  
 ``` echo
-calisan_id |  calisan_adi   | yasi 
-------------+----------------+------
-         23 | Furkan Aytekin |   27
+calisan_id |   calisan_adi   | yasi 
+------------+-----------------+------
+         23 | Furkan Aytekin  |   27
          24 | Jack Nichialson |   32
-         25 | Andrew Bailing |   38
+         25 | Andrew Bailing  |   38
 (3 rows)
 ```
 ## Faydalı Linkler
